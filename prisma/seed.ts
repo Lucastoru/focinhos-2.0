@@ -38,15 +38,15 @@ async function seedDatabase() {
       imageUrl: "https://utfs.io/f/5c2cc333-ed1a-47b0-8612-4a0fc64d30e7-l81vqt.jpeg",
     },
     {
-      name: "consultas",
-      description: "Tenha mais um membro da família em seu lar.",
+      name: "Consultas",
+      description: "Agende já uma consulta para o seu pet.",
       price: 35.0,
       imageUrl: "https://utfs.io/f/64b828e6-25eb-441e-ab9e-fe4e37f336ac-l81vro.jpeg",
     },
     {
       name: "Passeio e Diversão",
       description: "Contrate um colaborador para passeio de pet.",
-      price: 20.0,
+      price: 50.0,
       imageUrl: "https://utfs.io/f/091bf7aa-c9b5-414f-8348-caf99d10b8bf-l81wam.jpeg",
     },
     {
