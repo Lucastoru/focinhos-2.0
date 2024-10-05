@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define a camada base para o tema azul */
+@layer base {
+  .dark {
+    /* Variáveis de cor para o tema azul */
+    --background: 210 50% 15%; /* Cor de fundo */
+    --foreground: 210 40% 98%; /* Cor do texto principal */
+
+    --card: 210 50% 20%; /* Cor de fundo dos cartões */
+    --card-foreground: 210 40% 98%; /* Cor do texto dos cartões */
+
+    --popover: 210 50% 20%; /* Cor de fundo dos popovers */
+    --popover-foreground: 210 40% 98%; /* Cor do texto dos popovers */
+
+    --primary: 210 100% 50%; /* Cor primária */
+    --primary-foreground: 0 0% 100%; /* Cor do texto primário */
+
+    --secondary: 210 50% 25%; /* Cor secundária */
+    --secondary-foreground: 210 40% 98%; /* Cor do texto secundário */
+
+    --muted: 210 50% 25%; /* Cor neutra */
+    --muted-foreground: 210 20% 70%; /* Cor do texto neutro */
+
+    --accent: 210 100% 50%; /* Cor de destaque */
+    --accent-foreground: 210 40% 98%; /* Cor do texto de destaque */
+
+    --destructive: 0 84% 60%; /* Cor de ações destrutivas */
+    --destructive-foreground: 210 40% 98%; /* Cor do texto de ações destrutivas */
+
+    --border: 210 50% 25%; /* Cor das bordas */
+    --input: 210 50% 25%; /* Cor dos inputs */
+    --ring: 210 50% 50%; /* Cor dos anéis de foco */
+
+    --radius: 0.5rem; /* Raio das bordas */
+  }
+}
+
+/* Define a camada base para estilos globais */
+@layer base {
+  * {
+    @apply border-border; /* Aplica a cor da borda a todos os elementos */
+  }
+  body {
+    @apply bg-background text-foreground antialiased h-screen flex flex-col; /* Aplica estilos ao corpo da página */
+  }
+}
