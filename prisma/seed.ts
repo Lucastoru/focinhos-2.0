@@ -1,6 +1,6 @@
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require("@prisma/client")
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 async function seedDatabase() {
   try {
@@ -8,68 +8,69 @@ async function seedDatabase() {
       "https://utfs.io/f/mAGlPohZDfAbDYicZbeRCF0YcxgiXEhnLSzOB2TvI9belRVJ",
       "https://utfs.io/f/mAGlPohZDfAbkXQrfml4fIBlDjuLPwOHrMqJAE0nYWxsVc3p",
       "https://utfs.io/f/mAGlPohZDfAbq8Nsh0OeN1DUYHjvVGSQ2ogJyW3RP6tadrBx",
-      
-    ];
-    // Nomes criativos para as barbearias
-    const creativeNames = [
-      "Focinhos 1",
-      "Focinhos 2",
-      "Focinhos 3",
-    ];
+    ]
+    // Nomes criativos para as petshops
+    const creativeNames = ["Focinhos 1", "Focinhos 2", "Focinhos 3"]
 
-    // Endereços aletórios para barbearias
+    // Endereços aletórios para petshops
     const addresses = [
       "Rua Augusta, 1234",
       "Avenida Brigadeiro Faria Lima, 2233",
       "Rua Oscar Freire, 789",
-  ];
+    ]
 
-  const services = [
-    {
-      name: "Banho e Tosa",
-      description: "Serviços de banho e tosa para o seu pet.",
-      price: 60.0,
-      imageUrl: "https://utfs.io/f/e6f0628f-f398-481a-87ee-d9eca5cd4822-l81wcc.jpeg",
-    },
-    {
-      name: "Vacinação",
-      description: "Mantenha a saúde do seu pet em dia.",
-      price: 40.0,
-      imageUrl: "https://utfs.io/f/5c2cc333-ed1a-47b0-8612-4a0fc64d30e7-l81vqt.jpeg",
-    },
-    {
-      name: "Consultas",
-      description: "Agende já uma consulta para o seu pet.",
-      price: 35.0,
-      imageUrl: "https://utfs.io/f/64b828e6-25eb-441e-ab9e-fe4e37f336ac-l81vro.jpeg",
-    },
-    {
-      name: "Passeio e Diversão",
-      description: "Contrate um colaborador para passeio de pet.",
-      price: 50.0,
-      imageUrl: "https://utfs.io/f/091bf7aa-c9b5-414f-8348-caf99d10b8bf-l81wam.jpeg",
-    },
-    {
-      name: "Spa & Massagem",
-      description: "Seu pet com uma massagem revigorante.",
-      price: 50.0,
-      imageUrl: "https://utfs.io/f/b7c8a62a-bf7e-4ee4-ba8b-559a1d770e2e-l81wbh.jpeg",
-    },
-    {
-      name: "Hidratação",
-      description: "Hidratação para um pelo mais macio.",
-      price: 25.0,
-      imageUrl: "https://utfs.io/f/8a3b44f5-00b6-4669-9cca-addb7e9b0c11-l81vpy.jpeg",
-    },
-  ];
-    // Criar 10 barbershops com nomes e endereços fictícios
-    const barbershops = [];
+    const services = [
+      {
+        name: "Banho e Tosa",
+        description: "Serviços de banho e tosa para o seu pet.",
+        price: 60.0,
+        imageUrl:
+          "https://utfs.io/f/e6f0628f-f398-481a-87ee-d9eca5cd4822-l81wcc.jpeg",
+      },
+      {
+        name: "Vacinação",
+        description: "Mantenha a saúde do seu pet em dia.",
+        price: 40.0,
+        imageUrl:
+          "https://utfs.io/f/5c2cc333-ed1a-47b0-8612-4a0fc64d30e7-l81vqt.jpeg",
+      },
+      {
+        name: "Consultas",
+        description: "Agende já uma consulta para o seu pet.",
+        price: 35.0,
+        imageUrl:
+          "https://utfs.io/f/64b828e6-25eb-441e-ab9e-fe4e37f336ac-l81vro.jpeg",
+      },
+      {
+        name: "Passeio e Diversão",
+        description: "Contrate um colaborador para passeio de pet.",
+        price: 50.0,
+        imageUrl:
+          "https://utfs.io/f/091bf7aa-c9b5-414f-8348-caf99d10b8bf-l81wam.jpeg",
+      },
+      {
+        name: "Spa & Massagem",
+        description: "Seu pet com uma massagem revigorante.",
+        price: 50.0,
+        imageUrl:
+          "https://utfs.io/f/b7c8a62a-bf7e-4ee4-ba8b-559a1d770e2e-l81wbh.jpeg",
+      },
+      {
+        name: "Hidratação",
+        description: "Hidratação para um pelo mais macio.",
+        price: 25.0,
+        imageUrl:
+          "https://utfs.io/f/8a3b44f5-00b6-4669-9cca-addb7e9b0c11-l81vpy.jpeg",
+      },
+    ]
+    // Criar 03 petshops com nomes e endereços fictícios
+    const petshops = []
     for (let i = 0; i < 3; i++) {
-      const name = creativeNames[i];
-      const address = addresses[i];
-      const imageUrl = images[i];
+      const name = creativeNames[i]
+      const address = addresses[i]
+      const imageUrl = images[i]
 
-      const barbershop = await prisma.barbershop.create({
+      const petshop = await prisma.petshop.create({
         data: {
           name,
           address,
@@ -78,32 +79,32 @@ async function seedDatabase() {
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac augue ullamcorper, pharetra orci mollis, auctor tellus. Phasellus pharetra erat ac libero efficitur tempus. Donec pretium convallis iaculis. Etiam eu felis sollicitudin, cursus mi vitae, iaculis magna. Nam non erat neque. In hac habitasse platea dictumst. Pellentesque molestie accumsan tellus id laoreet.",
         },
-      });
+      })
 
       for (const service of services) {
-        await prisma.barbershopService.create({
+        await prisma.petshopService.create({
           data: {
             name: service.name,
             description: service.description,
             price: service.price,
-            barbershop: {
+            petshop: {
               connect: {
-                id: barbershop.id,
+                id: petshop.id,
               },
             },
             imageUrl: service.imageUrl,
           },
-        });
+        })
       }
 
-      barbershops.push(barbershop);
+      petshops.push(petshop)
     }
 
     // Fechar a conexão com o banco de dados
-    await prisma.$disconnect();
+    await prisma.$disconnect()
   } catch (error) {
-    console.error("Erro ao criar as barbearias:", error);
+    console.error("Erro ao criar as petshops:", error)
   }
 }
 
-seedDatabase();
+seedDatabase()

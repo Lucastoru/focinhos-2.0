@@ -9,15 +9,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
-interface BarbershopPageProps {
+interface PetshopPageProps {
   params: {
     id: string
   }
 }
 
-const BarbershopPage = async ({ params }: BarbershopPageProps) => {
+const PetshopPage = async ({ params }: PetshopPageProps) => {
   // chamar o meu banco de dados
-  const barbershop = await db.barbershop.findUnique({
+  const petshop = await db.petshop.findUnique({
     where: {
       id: params.id,
     },
@@ -26,7 +26,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
     },
   })
 
-  if (!barbershop) {
+  if (!petshop) {
     return notFound()
   }
 
@@ -35,8 +35,8 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
       {/* IMAGEM */}
       <div className="relative h-[250px] w-full">
         <Image
-          alt={barbershop.name}
-          src={barbershop?.imageUrl}
+          alt={petshop.name}
+          src={petshop?.imageUrl}
           fill
           className="object-cover"
         />
@@ -68,10 +68,10 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
 
       {/* TÍTULO */}
       <div className="border-b border-solid p-5">
-        <h1 className="mb-3 text-xl font-bold">{barbershop.name}</h1>
+        <h1 className="mb-3 text-xl font-bold">{petshop.name}</h1>
         <div className="mb-2 flex items-center gap-2">
           <MapPinIcon className="text-primary" size={18} />
-          <p className="text-sm">{barbershop?.address}</p>
+          <p className="text-sm">{petshop?.address}</p>
         </div>
 
         <div className="flex items-center gap-2">
@@ -83,17 +83,17 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
       {/* DESCRIÇÃO */}
       <div className="space-y-2 border-b border-solid p-5">
         <h2 className="text-xs font-bold uppercase text-gray-400">Sobre nós</h2>
-        <p className="text-justify text-sm">{barbershop?.description}</p>
+        <p className="text-justify text-sm">{petshop?.description}</p>
       </div>
 
       {/* SERVIÇOS */}
       <div className="space-y-3 border-b border-solid p-5">
         <h2 className="text-xs font-bold uppercase text-gray-400">Serviços</h2>
         <div className="space-y-3">
-          {barbershop.services.map((service) => (
+          {petshop.services.map((service) => (
             <ServiceItem
               key={service.id}
-              barbershop={JSON.parse(JSON.stringify(barbershop))}
+              petshop={JSON.parse(JSON.stringify(petshop))}
               service={JSON.parse(JSON.stringify(service))}
             />
           ))}
@@ -102,7 +102,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
 
       {/* CONTATO */}
       <div className="space-y-3 p-5">
-        {barbershop.phones.map((phone) => (
+        {petshop.phones.map((phone) => (
           <PhoneItem key={phone} phone={phone} />
         ))}
       </div>
@@ -110,4 +110,4 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
   )
 }
 
-export default BarbershopPage
+export default PetshopPage

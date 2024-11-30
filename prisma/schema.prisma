@@ -59,7 +59,7 @@ model VerificationToken {
   @@id([identifier, token])
 }
 
-model Barbershop {
+model Petshop {
   id          String              @id @default(uuid())
   name        String
   address     String
@@ -68,17 +68,17 @@ model Barbershop {
   imageUrl    String
   createdAt   DateTime            @default(now())
   updatedAt   DateTime            @updatedAt
-  services    BarbershopService[]
+  services    PetshopService[]
 }
 
-model BarbershopService {
+model PetshopService {
   id           String     @id @default(uuid())
   name         String
   description  String
   imageUrl     String
   price        Decimal    @db.Decimal(10, 2)
-  barbershopId String
-  barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
+  petshopId String
+  petshop   Petshop @relation(fields: [petshopId], references: [id])
   bookings     Booking[]
 }
 
@@ -87,7 +87,7 @@ model Booking {
   userId    String
   user      User              @relation(fields: [userId], references: [id])
   serviceId String
-  service   BarbershopService @relation(fields: [serviceId], references: [id])
+  service   PetshopService @relation(fields: [serviceId], references: [id])
   date      DateTime
   createdAt DateTime          @default(now())
   updatedAt DateTime          @updatedAt
